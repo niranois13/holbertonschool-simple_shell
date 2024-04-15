@@ -5,11 +5,14 @@
 
 #define BUFFER_SIZE 1024
 
+char **parse(char *input);
+
 int main(void)
 {
 	char *input = NULL;
 	size_t len = 0;
 	ssize_t read;
+	char **command;
 
 	while (1)
 	{
@@ -30,6 +33,19 @@ int main(void)
 				exit(EXIT_FAILURE);
 			}
 		}
+
+		command = parse(input);
+		if (command != NULL)
+		{
+			for (int i = 0; command[i] != NULL; i++)
+				printf("Token %d: %s\n", i, command[i]);
+
+			for (int i = 0; command[i] != NULL; i++)
+				free(command[i]);
+			free(command);
+		}
+		else
+			printf("No command found.\n");
 	}
 	free(input);
 	return (0);
