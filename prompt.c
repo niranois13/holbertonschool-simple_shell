@@ -16,30 +16,21 @@ int main(void)
 		printf("€ ");
 		read = getline(&input, &len, stdin);
 
-		if (EOF != '\0')
-		{
-			free(input);
-			exit(EXIT_FAILURE);
-		}
-
 		if (read == -1)
 		{
-			free(input);
-			perror("getLine\n");
-			exit(EXIT_FAILURE);
-		}
-		if (strcmp(input, "exit\n") == 0)
-		{
-			free(input);
-			exit(EXIT_SUCCESS);
-		}
-		if (strcmp(input, "exit\n") != 0)
-		{
-			free(input);
-			printf(":( Command not found: %s", input);
+			if (feof(stdin))
+			{
+				free(input);
+				exit(EXIT_SUCCESS);
+			}
+			else
+			{
+				free(input);
+				perror("getLine\n");
+				exit(EXIT_FAILURE);
+			}
 		}
 	}
 	free(input);
-
 	return (0);
 }
