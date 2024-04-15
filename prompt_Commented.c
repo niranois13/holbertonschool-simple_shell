@@ -37,7 +37,7 @@ int main(void)
 			l'utilisateur ou renvoyée par d'autres fonctions), la stocke dans
 			le buffer attribuée, qui sera pointé par 'input'.
 			&input est l'adresse de ce tampon, &len est l'adresse pointée par
-			len, qui compte le nombr de caractères entrés.*/
+			len, qui compte le nombre de caractères entrés.*/
 		/* En bref, lit une ligne entrée depuis le terminal et la stocke dans
 			le tampon input. La taille de ce tampon est gérée dynamiquement par
 			la fonction getline() en fonction de la longueur de l'entrée.*/
@@ -52,7 +52,7 @@ int main(void)
 		}
 
 		/* Gère une erreur au moment de l'input, en indiquant exit_failure et
-			en libérant la mmoire allouée*/
+			en libérant la mémoire allouée*/
 		if (read == -1)
 		{
 			free(input);
@@ -61,7 +61,7 @@ int main(void)
 		}
 
 		/* Si l'utilisateur entre 'exit' dans sont terminal, le programme
-			libère la mmoire et se ferme en indiquant SUCCESS. */
+			libère la mémoire et se ferme en indiquant SUCCESS. */
 		if (strcmp(input, "exit\n") == 0)
 		{
 			free(input);
