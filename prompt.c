@@ -14,7 +14,7 @@ int main(void)
 		printf("€ ");
 		read = getline(&input, &len, stdin);
 
-		if ( read == -1)
+		if (read == -1)
 		{
 			perror("getLine");
 			exit(EXIT_FAILURE);
@@ -24,8 +24,12 @@ int main(void)
 			free(input);
 			exit(EXIT_SUCCESS);
 		}
-		printf("%s", input);
+		if (strcmp(input, "exit\n") != 0)
+		{
+			printf(":( Command not found: %s", input);
+		}
 	}
+
 	free(input);
 	return (0);
 }
