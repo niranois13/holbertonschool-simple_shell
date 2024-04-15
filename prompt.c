@@ -3,9 +3,11 @@
 #include <unistd.h>
 #include <string.h>
 
+#define BUFFER_SIZE 1024
+
 int main(void)
 {
-	char *input;
+	char *input = NULL;
 	size_t len = 0;
 	ssize_t read;
 
@@ -14,9 +16,16 @@ int main(void)
 		printf("€ ");
 		read = getline(&input, &len, stdin);
 
+		if (EOF != '\0')
+		{
+			free(input);
+			exit(EXIT_FAILURE);
+		}
+
 		if (read == -1)
 		{
-			perror("getLine");
+			free(input);
+			perror("getLine\n");
 			exit(EXIT_FAILURE);
 		}
 		if (strcmp(input, "exit\n") == 0)
@@ -26,10 +35,11 @@ int main(void)
 		}
 		if (strcmp(input, "exit\n") != 0)
 		{
+			free(input);
 			printf(":( Command not found: %s", input);
 		}
 	}
-
 	free(input);
+
 	return (0);
 }
