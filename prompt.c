@@ -13,6 +13,7 @@ int main(void)
 	size_t len = 0;
 	ssize_t read;
 	char **command;
+	int i;
 
 	while (1)
 	{
@@ -37,10 +38,10 @@ int main(void)
 		command = parse(input);
 		if (command != NULL)
 		{
-			for (int i = 0; command[i] != NULL; i++)
+			for (i = 0; command[i] != NULL; i++)
 				printf("Token %d: %s\n", i, command[i]);
 
-			for (int i = 0; command[i] != NULL; i++)
+			for (i = 0; command[i] != NULL; i++)
 				free(command[i]);
 			free(command);
 		}

@@ -7,6 +7,7 @@ char **parse(char *input)
 {
 	char **tokens = NULL, *tok;
 	int position = 0;
+	int i;
 	const char *delim = " \t\n";
 
 	if (input == NULL)
@@ -22,7 +23,7 @@ char **parse(char *input)
 		tokens = realloc(tokens, (position + 1) * sizeof(char *));
 		if (tokens == NULL)
 		{
-			for (int i = 0; i < position; i++)
+			for (i = 0; i < position; i++)
 			{
 				free(tokens[i]);
 			}
@@ -32,7 +33,7 @@ char **parse(char *input)
 		tokens[position] = strdup(tok);
 		if (tokens[position] == NULL)
 		{
-			for (int i = 0; i < position; i++)
+			for (i = 0; i < position; i++)
 			{
 				free(tokens[i]);
 			}
