@@ -20,16 +20,6 @@ char **parse(char *input)
 	tok = strtok(input, delim);
 	while (tok != NULL)
 	{
-		tokens = realloc(tokens, (position + 1) * sizeof(char *));
-		if (tokens == NULL)
-		{
-			for (i = 0; i < position; i++)
-			{
-				free(tokens[i]);
-			}
-			free(tokens);
-			return (NULL);
-		}
 		tokens[position] = strdup(tok);
 		if (tokens[position] == NULL)
 		{
@@ -40,8 +30,19 @@ char **parse(char *input)
 			free(tokens);
 			return (NULL);
 		}
-		tok = strtok(NULL, delim);
 		position++;
+
+		tokens = realloc(tokens, (position + 1) * sizeof(char *));
+		if (tokens == NULL)
+		{
+			for (i = 0; i < position; i++)
+			{
+				free(tokens[i]);
+			}
+			free(tokens);
+			return (NULL);
+		}
+		tok = strtok(NULL, delim);
 	}
 	tokens[position] = NULL;
 	return (tokens);
