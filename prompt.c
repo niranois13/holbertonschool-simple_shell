@@ -38,6 +38,13 @@ int main(void)
 		command = parse(input);
 		if (command != NULL)
 		{
+			if (strcmp(command[0], "exit") == 0)
+			{
+				free(command[0]);
+				free(command);
+				free(input);
+				exit(EXIT_SUCCESS);
+			}
 			for (i = 0; command[i] != NULL; i++)
 				printf("Token %d: %s\n", i, command[i]);
 
