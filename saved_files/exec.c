@@ -6,7 +6,9 @@
  *
  * Return: 0 on success, or -1 on failure
  */
-int execute_command(char **command)
+ extern char **environ;
+
+int execute_command(char **command )
 {
 	pid_t child_pid;
 
@@ -18,7 +20,7 @@ int execute_command(char **command)
 		return (-1);
 	}
 
-	execve();
+	execve(command[0], command, environ);
 
 	if (child_pid > 0)
 	{

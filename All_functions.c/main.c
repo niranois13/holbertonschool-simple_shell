@@ -1,6 +1,7 @@
 #include "main.h"
 
 #define BUFFER_SIZE 1024
+extern char **environ;
 
 int main(void)
 {
@@ -8,6 +9,8 @@ int main(void)
 	size_t len = 0;
 	char **command;
 	int i;
+	char **env;
+	char **command_found = NULL;
 
 	if (isatty(STDIN_FILENO))
 	{
@@ -25,11 +28,21 @@ int main(void)
 					free(input);
 					exit(EXIT_SUCCESS);
 				}
+				if (strcmp(command[0], "env") == 0)
+				{
+					for (env = environ; env != NULL ; env++)
+					{
+						printf("%s", *env);
+					}
+				}
 				for (i = 0; command[i] != NULL; i++)
 					printf("Token %d: %s\n", i, command[i]);
 
 				if (*command[0] != '\0')
-					find_path(command[0]);
+				{
+					*command_found = find_path(command[0]);
+					execute_command(command_found);
+				}
 
 				for (i = 0; command[i] != NULL; i++)
 					free(command[i]);
