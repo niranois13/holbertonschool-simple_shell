@@ -10,7 +10,7 @@
 char **parse(char *input);
 char *find_path(char *command);
 char *prompt_and_read_input(char **input, size_t *len);
-int execute_command(char **command);
+int execute_command(const char *path, char **command);
 
 
 

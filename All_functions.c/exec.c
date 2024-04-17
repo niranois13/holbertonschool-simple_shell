@@ -6,12 +6,11 @@
  *
  * Return: 0 on success, or -1 on failure
  */
- extern char **environ;
+extern char **environ;
 
-int execute_command(char **command)
+int execute_command(const char *path, char **command)
 {
 	pid_t child_pid;
-	int *status = NULL;
 
 	child_pid = fork();
 
@@ -23,24 +22,13 @@ int execute_command(char **command)
 
 	if (child_pid == 0) /*child process*/
 	{
-		execve(command[0], command, environ);
-		perror("Error: execve failed");
+		execve(path, command, environ);
+		perror("execve"); /* Print error if execve fails */
 		exit(EXIT_FAILURE);
 	}
 	else /*parent process*/
 	{
-		waitpid(child_pid, status, 0);
-		if (WIFEXITED(*status))
-		{
-			free(command);  /* Free memory for command after child process finishes*/
-			return WEXITSTATUS(*status);
-		}
-		else
-		{
-			perror("Error: Child process did not terminate normally");
-			free(command);  /*Free memory for command in case of abnormal termination*/
-			return -1;
-		}
+		wait(NULL);
 	}
 	return (0);
 }
