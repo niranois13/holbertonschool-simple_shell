@@ -48,7 +48,8 @@ int main(void)
 					printf("Command not found in path.\n");
 				}
 			}
-
+			free(command_found);
+			
 			for (i = 0; command[i] != NULL; i++)
 				free(command[i]);
 			free(command);

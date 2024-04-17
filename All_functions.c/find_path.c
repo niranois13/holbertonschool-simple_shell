@@ -32,7 +32,6 @@ char *find_path(char *command)
 			return (NULL);
 		}
 		sprintf(full_command_path, "%s/%s", path_directory, command);
-		/*printf("%s\n", full_command_path);*/
 
 		if (access(full_command_path, X_OK) == 0)
 		{
@@ -43,6 +42,7 @@ char *find_path(char *command)
 		free(full_command_path);
 		path_directory = strtok(NULL, ":");
 	}
+	free(path_copy);
 	printf("Error: command not found\n");
 	return (NULL);
 }
