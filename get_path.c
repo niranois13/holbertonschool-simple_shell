@@ -1,7 +1,10 @@
 #include "main.h"
 
-extern char **environ;
-
+/**
+ * parse - Function that split the input strings.
+ * @input: pointer of char strings
+ * Return: NULL or array of pointers.
+*/
 const char *get_path()
 {
 	char **env;

@@ -3,8 +3,7 @@
 char **parse(char *input)
 {
 	char **tokens = NULL, *tok;
-	int position = 0;
-	int i;
+	int position = 0, i;
 	const char *delim = " \t\n";
 
 	if (input == NULL)
@@ -21,9 +20,8 @@ char **parse(char *input)
 		if (tokens[position] == NULL)
 		{
 			for (i = 0; i < position; i++)
-			{
 				free(tokens[i]);
-			}
+
 			free(tokens);
 			return (NULL);
 		}
@@ -33,9 +31,8 @@ char **parse(char *input)
 		if (tokens == NULL)
 		{
 			for (i = 0; i < position; i++)
-			{
 				free(tokens[i]);
-			}
+			
 			free(tokens);
 			return (NULL);
 		}

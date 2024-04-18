@@ -1,5 +1,11 @@
 #include "main.h"
 #define BUFFER_SIZE 1024
+
+/*prompt_and_read_input - fucntion that to prompt the user for input,
+ *read the input from the user
+ *@input:pointer to char pointer
+ *len: pointer to the size
+ *Return: dynamically allocated string (char *)*/
 char *prompt_and_read_input(char **input, size_t *len)
 {
     ssize_t read;
