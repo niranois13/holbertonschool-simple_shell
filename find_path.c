@@ -41,6 +41,6 @@ char *find_path(char *command)
 		path_directory = strtok(NULL, ":");
 	}
 	free(path_copy);
-	printf("Error: command not found\n");
+	printf("%s: command not found\n", command);
 	return (NULL);
 }

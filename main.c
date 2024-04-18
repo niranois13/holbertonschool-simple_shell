@@ -27,8 +27,6 @@ int main(void)
 				command_found = find_path(command[0]);
 				if (command_found != NULL)
 					execute_command(command_found, command);
-				else
-					printf("Command not found in path.\n");
 			}
 			free(command_found);
 

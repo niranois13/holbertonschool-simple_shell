@@ -41,6 +41,7 @@ char **parse(char *input)
 		}
 		tok = strtok(NULL, delim);
 	}
+	free(input);
 	tokens[position] = NULL;
 	return (tokens);
 }
