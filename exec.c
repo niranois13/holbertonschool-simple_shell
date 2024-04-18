@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * execute_command - Function that execute a shell command
- * @command: Array of commands arguments
- * @path: pointer to the constant path
- *
+ * execute_command - Function that execute shell commands
+ * from the environ variable
+ * @command: Array of commands arguments to execute
+ * @path: pointer to the string containing the path of the command to execute
  * Return: 0 on success, or -1 on failure
  */
 

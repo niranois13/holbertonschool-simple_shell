@@ -2,11 +2,11 @@
 #define BUFFER_SIZE 1024
 
 /**
-* prompt_and_read_input - fucntion that to prompt the user for input,
-*read the input from the user
-*@input: pointer to char pointer
-*@len: pointer to the size
-*Return: dynamically allocated string
+* prompt_and_read_input - fucntion that displays a prompt for user input,
+* and reads it.
+*@input: pointer to the input string
+*@len: pointer to the BUFFER_SIZE
+*Return: dynamically allocated input string
 */
 char *prompt_and_read_input(char **input, size_t *len)
 {

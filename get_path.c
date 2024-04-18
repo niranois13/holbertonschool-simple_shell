@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * get_path - Function that split the input strings.
+ * get_path - Function that fetch the PATH global variable
+ * from the environ global variable.
  * Return: 0
 */
 const char *get_path()

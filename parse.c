@@ -1,8 +1,9 @@
 #include "main.h"
+
 /**
- * parse - Function that split the input strings.
- * @input: pointer of char strings
- * Return: NULL or array of pointers.
+ * parse - Function that tokkenises the input string.
+ * @input: pointer to the strings
+ * Return: NULL or array of arguments strings.
 */
 char **parse(char *input)
 {
@@ -25,7 +26,6 @@ char **parse(char *input)
 		{
 			for (i = 0; i < position; i++)
 				free(tokens[i]);
-
 			free(tokens);
 			return (NULL);
 		}
@@ -37,6 +37,7 @@ char **parse(char *input)
 			for (i = 0; i < position; i++)
 				free(tokens[i]);
 			free(tokens);
+
 			return (NULL);
 		}
 		tok = strtok(NULL, delim);

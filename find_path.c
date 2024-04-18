@@ -9,14 +9,12 @@ char *find_path(char *command)
 {
 	char *path_copy, *path_directory, *full_command_path = NULL;
 
-
 	path_copy = strdup(get_path());
 	if (path_copy == NULL)
 	{
 		free(path_copy);
 		return (NULL);
 	}
-
 	path_directory = strtok(path_copy, ":");
 
 	while (path_directory != NULL)
@@ -41,5 +39,6 @@ char *find_path(char *command)
 	}
 	free(path_copy);
 	printf("%s: command not found\n", command);
+
 	return (NULL);
 }
