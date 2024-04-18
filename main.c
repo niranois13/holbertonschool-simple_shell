@@ -1,5 +1,9 @@
 #include "main.h"
 #define BUFFER_SIZE 1024
+/**
+ * main - main function of Shell
+ * Return: Nothing
+*/
 
 int main(void)
 {

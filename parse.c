@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * parse - Function that split the input strings.
+ * @input: pointer of char strings
+ * Return: NULL or array of pointers.
+*/
 char **parse(char *input)
 {
 	char **tokens = NULL, *tok;
@@ -32,7 +36,6 @@ char **parse(char *input)
 		{
 			for (i = 0; i < position; i++)
 				free(tokens[i]);
-			
 			free(tokens);
 			return (NULL);
 		}
