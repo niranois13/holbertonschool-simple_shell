@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+ * built_in - function that handle built-in commands like "exit" and "env"
+ * @command: pointer to array of char
+ * Return: succes or 0
+*/
 
 int built_in(char **command)
 {
