@@ -1,13 +1,11 @@
 #include "main.h"
 
 /**
- * exec - Function that execute a shell command
- * @command: Array of commands arguments
- *
+ * execute_command - Function that execute a shell command
+ * @command: Array of char
+ * @path: Pointer on constant char
  * Return: 0 on success, or -1 on failure
  */
-extern char **environ;
-
 int execute_command(const char *path, char **command)
 {
 	pid_t child_pid;

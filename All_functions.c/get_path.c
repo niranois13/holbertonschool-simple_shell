@@ -1,14 +1,16 @@
 #include "main.h"
-
-extern char **environ;
+/**
+* get_path - Function that extract the PATH from the environement.
+* Return: the PATH or 0
+*/
 
 const char *get_path()
 {
 	char **env;
 
-	for(env = environ; environ != NULL; env++)
+	for (env = environ; environ != NULL; env++)
 	{
-		if(strncmp(*env, "PATH=", 5) == 0)
+		if (strncmp(*env, "PATH=", 5) == 0)
 		{
 			return (*env + 5);
 		}

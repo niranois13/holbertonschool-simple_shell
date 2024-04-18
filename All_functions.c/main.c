@@ -1,7 +1,6 @@
 #include "main.h"
 
 #define BUFFER_SIZE 1024
-extern char **environ;
 
 int main(void)
 {

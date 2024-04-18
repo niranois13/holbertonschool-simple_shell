@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * find_path - Function that finds the full path of a given command.
+ * find_path - Function that finds the full PATH of a given command.
  * @command: The command for wich to find the full path
  * Return: The full path of the command if found or NULL if not found
  */
