@@ -34,7 +34,6 @@ char *find_path(char *command)
 		if (access(full_command_path, X_OK) == 0)
 		{
 			free(path_copy);
-			printf("%s\n", full_command_path);
 			return (full_command_path);
 		}
 		free(full_command_path);

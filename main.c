@@ -15,7 +15,7 @@ int main(void)
 	while (1)
 	{
 		prompt_and_read_input(&input, &len);
-		if (*input == '\n')
+		if (*input == '\n' || *input == ' ')
 			continue;
 
 		command = parse(input);
