@@ -38,7 +38,7 @@ char *find_path(char *command)
 		path_directory = strtok(NULL, ":");
 	}
 	free(path_copy);
-	printf("%s: command not found\n", command);
+	printf("./hsh: No such file or directory\n");
 
 	return (NULL);
 }
