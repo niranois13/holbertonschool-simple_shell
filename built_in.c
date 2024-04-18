@@ -19,7 +19,7 @@ int built_in(char **command)
 	{
 		for (env = environ; *env != NULL ; env++)
 		{
-			printf("%s", *env);
+			printf("%s\n", *env);
 		}
 	}
 	return (0);

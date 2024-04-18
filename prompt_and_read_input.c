@@ -11,6 +11,8 @@
 char *prompt_and_read_input(char **input, size_t *len)
 {
 	ssize_t read;
+	*input = NULL;
+	*len = BUFFER_SIZE;
 
 	printf("Top-Shell:€ ");
 	read = getline(input, len, stdin);
