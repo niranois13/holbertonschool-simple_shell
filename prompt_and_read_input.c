@@ -1,13 +1,13 @@
 #include "main.h"
 #define BUFFER_SIZE 1024
 /**
- * 
- * 
+ *
+ *
 */
 
 void sigint_handler()
 {
-    printf("\nTop-Shell:€ ");
+    printf("\n$ ");
     fflush(stdout);
 }
 
@@ -24,7 +24,7 @@ char *prompt_and_read_input(char **input, size_t *len)
 	*input = NULL;
 	*len = BUFFER_SIZE;
 
-	printf("Top-Shell:€ ");
+	printf("$ ");
 	read = getline(input, len, stdin);
 	if (read == -1)
 	{

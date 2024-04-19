@@ -22,7 +22,6 @@ int main(void)
 			continue;
 		}
 		command = parse(input);
-		printf("1:%s\n", command[0]);
 
 		if (command != NULL)
 		{
@@ -30,7 +29,6 @@ int main(void)
 			if (*command[0] != '\0')
 			{
 				command_found = find_path(command[0]);
-				printf("2:%s\n", command_found);
 
 				if (command_found != NULL)
 					execute_command(command_found, command);
