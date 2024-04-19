@@ -15,6 +15,6 @@ char *find_path(char *command);
 char *prompt_and_read_input(char **input, size_t *len);
 int execute_command(const char *path, char **command);
 const char *get_path();
-
+void sigint_handler();
 
 #endif

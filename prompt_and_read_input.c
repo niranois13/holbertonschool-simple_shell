@@ -1,5 +1,15 @@
 #include "main.h"
 #define BUFFER_SIZE 1024
+/**
+ * 
+ * 
+*/
+
+void sigint_handler()
+{
+    printf("\nTop-Shell:€ ");
+    fflush(stdout);
+}
 
 /**
 * prompt_and_read_input - fucntion that displays a prompt for user input,

@@ -11,6 +11,7 @@ int main(void)
 	size_t len = 0;
 	int i;
 	char **command = NULL;
+	signal(SIGINT, sigint_handler);
 
 	while (1)
 	{
