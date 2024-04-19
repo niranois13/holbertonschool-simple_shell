@@ -22,17 +22,18 @@ int main(void)
 			continue;
 		}
 		command = parse(input);
+		printf("1:%s\n", command[0]);
+
 		if (command != NULL)
 		{
-			if ((access(command[0], X_OK) == 0) | (strcmp(command[0], "exit") == 0)
-			 | (strcmp(command[0], "env") == 0))
-				built_in(command);
-			else if (*command[0] != '\0')
+			built_in(command);
+			if (*command[0] != '\0')
 			{
 				command_found = find_path(command[0]);
+				printf("2:%s\n", command_found);
+
 				if (command_found != NULL)
 					execute_command(command_found, command);
-				free(command_found);
 			}
 			for (i = 0; command[i] != NULL; i++)
 				free(command[i]);
@@ -41,6 +42,7 @@ int main(void)
 		else
 			printf("No command found.\n");
 	}
+	free(command_found);
 	free(input);
 	return (0);
 }

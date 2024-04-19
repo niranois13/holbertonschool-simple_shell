@@ -9,12 +9,19 @@ char *find_path(char *command)
 {
 	char *path_copy, *path_directory, *full_command_path = NULL;
 
+
 	path_copy = strdup(get_path());
 	if (path_copy == NULL)
 	{
 		free(path_copy);
 		return (NULL);
 	}
+	if (access(command, X_OK) == 0)
+	{
+		free(path_copy);
+		return (command);
+	}
+
 	path_directory = strtok(path_copy, ":");
 
 	while (path_directory != NULL)
@@ -23,11 +30,12 @@ char *find_path(char *command)
 
 		if (full_command_path == NULL)
 		{
-			free(full_command_path);
+			free(path_copy);
 			printf("Error: failed to allocate memory");
 			return (NULL);
 		}
 		sprintf(full_command_path, "%s/%s", path_directory, command);
+		printf("3:%s\n", full_command_path);
 
 		if (access(full_command_path, X_OK) == 0)
 		{
@@ -38,7 +46,6 @@ char *find_path(char *command)
 		path_directory = strtok(NULL, ":");
 	}
 	free(path_copy);
-	printf("./hsh: No such file or directory\n");
-
+	printf("%s: command not found\n", command);
 	return (NULL);
 }
