@@ -14,7 +14,7 @@ char *prompt_and_read_input_1(char **input, size_t *len)
 	*input = NULL;
 	*len = BUFFER_SIZE;
 
-	printf("$$ ");
+	printf("$ ");
 	read = getline(input, len, stdin);
 	if (read == -1)
 	{

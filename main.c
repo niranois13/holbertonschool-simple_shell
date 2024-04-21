@@ -31,6 +31,6 @@ int main(int argc, char *argv[])
 
 void sigint_handler()
 {
-	printf("\n$$ ");
+	printf("\n$ ");
 	fflush(stdout);
 }
