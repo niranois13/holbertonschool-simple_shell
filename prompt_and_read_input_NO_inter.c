@@ -2,7 +2,7 @@
 #define BUFFER_SIZE 1024
 
 /**
-* prompt_and_read_input - fucntion that displays a prompt for user input,
+* prompt_and_read_input_2 - fucntion that displays a prompt for user input,
 * and reads it.
 *@input: pointer to the input string
 *@len: pointer to the BUFFER_SIZE

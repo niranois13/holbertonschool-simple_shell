@@ -2,7 +2,7 @@
 
 /**
  * free_string_array - Function that frees memory for an array of strings
- * @command: Array of strings
+ * @array: Array of strings
  * Return: void
  */
 
