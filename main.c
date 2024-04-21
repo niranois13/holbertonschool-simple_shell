@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	int argc_number = 0;
 	char **args = NULL;
 
-	signal(SIGINT, SIG_IGN);
+	signal(SIGINT, sigint_handler);
 
 	argc_number = argc;
 	args = argv;
@@ -27,4 +27,10 @@ int main(int argc, char *argv[])
 		}
 	}
 	return (0);
+}
+
+void sigint_handler()
+{
+	printf("\n$$ ");
+	fflush(stdout);
 }

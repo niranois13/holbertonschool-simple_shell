@@ -21,6 +21,6 @@ char *prompt_and_read_input_2(char **input, size_t *len);
 int execute_command(const char *path, char **command);
 const char *get_path();
 void free_string_array(char **array);
-
+void sigint_handler();
 
 #endif
