@@ -10,7 +10,7 @@
 *@command_found: a string composed of the path/command
 *Return: 1 if succesfull or 0 if fails to launch
 */
-int launch_prompt(int argc_number, char **args)
+int launch_prompt_2(int argc_number, char **args)
 {
 	char *input, *command_found = NULL;
 	size_t len = 0;
@@ -18,7 +18,7 @@ int launch_prompt(int argc_number, char **args)
 
 	while (1)
 	{
-		prompt_and_read_input(&input, &len);
+		prompt_and_read_input_2(&input, &len);
 		if (*input == '\n' || *input == ' ')
 		{
 			free(input);
@@ -40,7 +40,7 @@ int launch_prompt(int argc_number, char **args)
 				if (command_found != NULL)
 					execute_command(command_found, command);
 				else
-					printf("%s: %d: %s: not found\n", args[0], argc_number, command[0]);
+					dprintf(STDERR_FILENO,"%s: %d: No such file or directory\n", args[0], argc_number);
 				free(command_found);
 			}
 			free_string_array(command);

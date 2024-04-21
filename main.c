@@ -19,11 +19,11 @@ int main(int argc, char *argv[])
 	{
 		if (isatty(STDIN_FILENO))
 		{
-			launch_prompt(argc_number, args);
+			launch_prompt_1(args);
 		}
 		else
 		{
-			launch_prompt(argc_number, args);
+			launch_prompt_2(argc_number, args);
 		}
 	}
 	return (0);

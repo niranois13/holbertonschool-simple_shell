@@ -8,7 +8,7 @@
 *@len: pointer to the BUFFER_SIZE
 *Return: dynamically allocated input string
 */
-char *prompt_and_read_input(char **input, size_t *len)
+char *prompt_and_read_input_1(char **input, size_t *len)
 {
 	ssize_t read;
 	*input = NULL;
@@ -18,6 +18,7 @@ char *prompt_and_read_input(char **input, size_t *len)
 	read = getline(input, len, stdin);
 	if (read == -1)
 	{
+		input[0][read - 1] = '\0';
 		if (read == EOF)
 		{
 			printf("\n");
