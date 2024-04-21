@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	int argc_number = 0;
 	char **args = NULL;
 
-	signal(SIGINT, sigint_handler);
+	signal(SIGINT, SIG_IGN);
 
 	argc_number = argc;
 	args = argv;
