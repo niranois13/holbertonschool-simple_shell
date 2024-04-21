@@ -16,8 +16,10 @@ char **parse(char *input)
 
 	tokens = malloc(sizeof(char *));
 	if (tokens == NULL)
+	{
+		perror("malloc");
 		return (NULL);
-
+	}
 	tok = strtok(input, delim);
 	while (tok != NULL)
 	{
@@ -25,6 +27,7 @@ char **parse(char *input)
 		if (tokens[position] == NULL)
 		{
 			free_string_array(tokens);
+			fprintf(stderr, "Failed to duplicate token\n");
 			return (NULL);
 		}
 		position++;
@@ -33,6 +36,7 @@ char **parse(char *input)
 		if (tokens == NULL)
 		{
 			free_string_array(tokens);
+			perror("realloc");
 			return (NULL);
 		}
 		tok = strtok(NULL, delim);

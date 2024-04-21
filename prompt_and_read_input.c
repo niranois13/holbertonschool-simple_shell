@@ -22,7 +22,7 @@ char *prompt_and_read_input(char **input, size_t *len)
 		{
 			printf("\n");
 			free(*input);
-			exit(EXIT_FAILURE);
+			exit(EXIT_SUCCESS);
 		}
 		else
 		{

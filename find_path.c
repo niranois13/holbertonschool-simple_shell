@@ -24,7 +24,7 @@ char *find_path(char *command)
 		if (full_command_path == NULL)
 		{
 			free(full_command_path);
-			printf("Error: failed to allocate memory");
+			perror("malloc");
 			return (NULL);
 		}
 		sprintf(full_command_path, "%s/%s", path_directory, command);
