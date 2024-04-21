@@ -12,8 +12,7 @@ int built_in(char **command)
 
 	if (strcmp(command[0], "exit") == 0)
 	{
-		free(command[0]);
-		free(command);
+		free_string_array(command);
 		exit(EXIT_SUCCESS);
 	}
 	if (strcmp(command[0], "env") == 0)
@@ -21,6 +20,8 @@ int built_in(char **command)
 		for (env = environ; *env != NULL ; env++)
 			printf("%s\n", *env);
 	}
+	if (*command[0] != '\0' && access(command[0], X_OK) == 0)
+		execute_command(command[0], command);
 
 	return (1);
 }

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_path - Function that fetch the PATH global variable
+ * get_path - Function that fetches the PATH global variable
  * from the environ global variable.
  * Return: 0
 */

@@ -1,15 +1,5 @@
 #include "main.h"
 #define BUFFER_SIZE 1024
-/**
- *
- *
-*/
-
-void sigint_handler()
-{
-    printf("\n$ ");
-    fflush(stdout);
-}
 
 /**
 * prompt_and_read_input - fucntion that displays a prompt for user input,
@@ -24,7 +14,7 @@ char *prompt_and_read_input(char **input, size_t *len)
 	*input = NULL;
 	*len = BUFFER_SIZE;
 
-	printf("$ ");
+	printf("$$ ");
 	read = getline(input, len, stdin);
 	if (read == -1)
 	{

@@ -15,12 +15,6 @@ char *find_path(char *command)
 		free(path_copy);
 		return (NULL);
 	}
-	if (access(command, X_OK) == 0)
-	{
-		free(path_copy);
-		return (command);
-	}
-
 	path_directory = strtok(path_copy, ":");
 
 	while (path_directory != NULL)
@@ -29,7 +23,8 @@ char *find_path(char *command)
 
 		if (full_command_path == NULL)
 		{
-			free(path_copy);
+			free(full_command_path);
+			printf("Error: failed to allocate memory");
 			return (NULL);
 		}
 		sprintf(full_command_path, "%s/%s", path_directory, command);
@@ -43,6 +38,5 @@ char *find_path(char *command)
 		path_directory = strtok(NULL, ":");
 	}
 	free(path_copy);
-	printf("./hsh: %s: not found\n", command);
 	return (NULL);
 }

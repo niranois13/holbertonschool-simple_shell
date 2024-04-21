@@ -23,7 +23,8 @@ int execute_command(const char *path, char **command)
 	if (child_pid == 0)
 	{
 		execve(path, command, environ);
-		dprintf(STDERR_FILENO, "%s: no such file or directory.\n", command[0]);
+		perror("execve");
+		exit(EXIT_FAILURE);
 	}
 	else
 	{

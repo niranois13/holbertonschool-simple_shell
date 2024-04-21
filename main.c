@@ -5,42 +5,26 @@
  * main - main function of the simpleShell
  * Return: Void
 */
-int main(void)
+int main(int argc, char *argv[])
 {
-	char *input, *command_found = NULL;
-	size_t len = 0;
-	int i;
-	char **command = NULL;
+	int argc_number = 0;
+	char **args = NULL;
+
 	signal(SIGINT, sigint_handler);
+
+	argc_number = argc;
+	args = argv;
 
 	while (1)
 	{
-		prompt_and_read_input(&input, &len);
-		if (*input == '\n' || *input == ' ')
+		if (isatty(STDIN_FILENO))
 		{
-			free(input);
-			continue;
-		}
-		command = parse(input);
-
-		if (command != NULL)
-		{
-			built_in(command);
-			if (*command[0] != '\0')
-			{
-				command_found = find_path(command[0]);
-
-				if (command_found != NULL)
-					execute_command(command_found, command);
-			}
-			for (i = 0; command[i] != NULL; i++)
-				free(command[i]);
-			free(command);
+			launch_prompt(argc_number, args);
 		}
 		else
-			printf("No command found.\n");
+		{
+			launch_prompt(argc_number, args);
+		}
 	}
-	free(command_found);
-	free(input);
 	return (0);
 }
