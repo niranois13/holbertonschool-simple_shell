@@ -16,7 +16,7 @@ int execute_command(const char *path, char **command)
 
 	if (child_pid == -1)
 	{
-		printf("Error: Failed to fork");
+		perror("fork");
 		return (-1);
 	}
 

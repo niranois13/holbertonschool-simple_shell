@@ -27,7 +27,8 @@ int launch_prompt_1(char **args)
 		command = parse(input);
 		if (command != NULL)
 		{
-			if ((access(command[0], X_OK) == 0) | (strcmp(command[0], "exit") == 0) | (strcmp(command[0], "env") == 0))
+			if ((access(command[0], X_OK) == 0) |
+			strcmp(command[0], "exit") == 0) | (strcmp(command[0], "env") == 0)
 			{
 				built_in(command);
 				free_string_array(command);
