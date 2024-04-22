@@ -18,7 +18,6 @@ char *prompt_and_read_input_1(char **input, size_t *len)
 	read = getline(input, len, stdin);
 	if (read == -1)
 	{
-		input[0][read - 1] = '\0';
 		if (read == EOF)
 		{
 			printf("\n");

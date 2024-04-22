@@ -18,9 +18,16 @@ char **parse(char *input)
 	if (tokens == NULL)
 	{
 		perror("malloc");
+		free(tokens);
 		return (NULL);
 	}
 	tok = strtok(input, delim);
+	if (tok == NULL)
+	{
+		free(input);
+		free(tokens);
+		return (NULL);
+	}
 	while (tok != NULL)
 	{
 		tokens[position] = strdup(tok);

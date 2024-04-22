@@ -17,13 +17,8 @@ int launch_prompt_2(int argc_number, char **args)
 	while (1)
 	{
 		prompt_and_read_input_2(&input, &len);
-		if (*input == '\n' || *input == ' ')
-		{
-			free(input);
-			continue;
-		}
 		command = parse(input);
-		if (command != NULL)
+		if (command != NULL && command[0] != NULL)
 		{
 			if ((access(command[0], X_OK) == 0) | (strcmp(command[0], "exit") == 0)
 			| (strcmp(command[0], "env") == 0))
