@@ -17,6 +17,7 @@ int execute_command(const char *path, char **command)
 	if (child_pid == -1)
 	{
 		perror("fork");
+		fprintf(stderr, "%s\n", strerror(errno));
 		return (-1);
 	}
 
@@ -24,7 +25,7 @@ int execute_command(const char *path, char **command)
 	{
 		execve(path, command, environ);
 		perror("execve");
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	else
 	{
