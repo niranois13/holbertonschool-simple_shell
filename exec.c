@@ -7,7 +7,6 @@
  * @path: pointer to the string containing the path of the command to execute
  * Return: 0 on success, or -1 on failure
  */
-
 int execute_command(const char *path, char **command)
 {
 	pid_t child_pid;
@@ -23,6 +22,7 @@ int execute_command(const char *path, char **command)
 
 	if (child_pid == 0)
 	{
+		printf("Je suis l'enfant\n");
 		execve(path, command, environ);
 		perror("execve");
 		exit(EXIT_FAILURE);
@@ -30,6 +30,7 @@ int execute_command(const char *path, char **command)
 	else
 	{
 		wait(NULL);
+		printf("Je suis le parent\n");
 	}
 	return (0);
 }
