@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
@@ -22,6 +23,6 @@ int execute_command(const char *path, char **command);
 const char *get_path();
 void free_string_array(char **array);
 void sigint_handler();
-void *_realloc(void *ptr, size_t size);
+void *_realloc(void *ptr, size_t old_size, size_t new_size);
 
 #endif

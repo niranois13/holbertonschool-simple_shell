@@ -1,40 +1,44 @@
 #include "main.h"
 
-/**
-* _realloc - function that replicates realloc()
-* @ptr: pointer to the array to realloc memory for
-* @old_size: size of the previously allocated memory
-* @new_size: size of the newly allocated memory
-*/
-void *_realloc(void *ptr, size_t size)
+void *_realloc(void *ptr, size_t old_size, size_t new_size)
 {
-	void *new_ptr;
-	size_t min_size;
-	size_t i;
+	void *new_ptr = NULL;
+	char *old_ptr, *new_ptr_char;
+	size_t copy_size, i;
 
-	if (size == 0)
+	if (new_size == old_size)
+		return (ptr);
+	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
-		return NULL;
+		return (NULL);
 	}
 	if (ptr == NULL)
 	{
-	   return malloc(size);
+		ptr = malloc(new_size);
+		if (ptr == NULL)
+		{
+			return (NULL);
+		}
+		return (ptr);
 	}
 
-	new_ptr = malloc(size);
+
+	new_ptr = malloc(new_size);
 	if (new_ptr == NULL)
-		return NULL;
+		return (NULL);
 
-	min_size = *(size_t *)ptr < size ? *(size_t *)ptr : size;
+	old_ptr = ptr;
+	new_ptr_char = new_ptr;
 
-	for (i = 0; i < min_size; i++)
-		((char *)new_ptr)[i] = ((char *)ptr)[i];
+	if (old_size < new_size)
+		copy_size = old_size;
+	else
+		copy_size = new_size;
+	for (i = 0; i < copy_size; ++i) {
+		new_ptr_char[i] = old_ptr[i];
+	}
 
 	free(ptr);
-	return new_ptr;
+	return (new_ptr);
 }
-
-
-
-
