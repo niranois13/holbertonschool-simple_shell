@@ -22,7 +22,7 @@ char *prompt_and_read_input_2(char **input, size_t *len)
 		if (read == EOF)
 		{
 			free(*input);
-			exit(EXIT_FAILURE);
+			exit(EXIT_SUCCESS);
 		}
 		else
 		{
