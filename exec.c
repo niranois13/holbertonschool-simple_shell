@@ -22,7 +22,6 @@ int execute_command(const char *path, char **command)
 
 	if (child_pid == 0)
 	{
-		printf("Je suis l'enfant\n");
 		execve(path, command, environ);
 		perror("execve");
 		exit(EXIT_FAILURE);
@@ -30,7 +29,6 @@ int execute_command(const char *path, char **command)
 	else
 	{
 		wait(NULL);
-		printf("Je suis le parent\n");
 	}
 	return (0);
 }
