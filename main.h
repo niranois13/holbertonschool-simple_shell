@@ -22,5 +22,6 @@ int execute_command(const char *path, char **command);
 const char *get_path();
 void free_string_array(char **array);
 void sigint_handler();
+void *_realloc(void *ptr, size_t size);
 
 #endif
