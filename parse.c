@@ -39,7 +39,7 @@ char **parse(char *input)
 		}
 		position++;
 
-		tokens = realloc(tokens, (position + 1) * sizeof(char *));
+		tokens = _realloc(tokens, (position + 1) * sizeof(char *));
 		if (tokens == NULL)
 		{
 			free_string_array(tokens);
