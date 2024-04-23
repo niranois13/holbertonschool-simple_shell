@@ -6,14 +6,15 @@
  * @command: pointer to an array of strings
  * Return: succes or 0
 */
-int built_in(char **command)
+int built_in(char **command, int flag_status)
 {
 	char **env;
 
 	if (strcmp(command[0], "exit") == 0)
 	{
+		printf("2: %d\n", flag_status);
 		free_string_array(command);
-		exit(EXIT_SUCCESS);
+		exit(flag_status);
 	}
 	if (strcmp(command[0], "env") == 0)
 	{
