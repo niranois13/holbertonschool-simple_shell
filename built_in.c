@@ -12,7 +12,6 @@ int built_in(char **command, int flag_status)
 
 	if (strcmp(command[0], "exit") == 0)
 	{
-		printf("2: %d\n", flag_status);
 		free_string_array(command);
 		exit(flag_status);
 	}

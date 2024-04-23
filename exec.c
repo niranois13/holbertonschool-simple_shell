@@ -22,7 +22,6 @@ int execute_command(const char *path, char **command)
 
 	if (child_pid == 0)
 	{
-		printf("1: %s: %s\n", command[0], command[1]);
 		execve(path, command, environ);
 		perror("execve");
 		exit(EXIT_FAILURE);
