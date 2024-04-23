@@ -12,19 +12,13 @@ int built_in(char **command, int flag)
 
 	if (strcmp(command[0], "exit") == 0)
 	{
-		printf("1:%d\n", flag);
-		printf("1:%d\n", errno);
 		free_string_array(command);
 		if (flag == 0)
 		{
-			printf("2:%d\n", flag);
-			printf("2:%d\n", errno);
 			exit(EXIT_SUCCESS);
 		}
 		else
 		{
-			printf("3:%d\n", flag);
-			printf("3:%d\n", errno);
 			exit(errno);
 		}
 
