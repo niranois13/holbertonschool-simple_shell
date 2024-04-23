@@ -1,5 +1,7 @@
-<section style="background-color:#RRGGBB; color white">
+<section style="background-color:#0a192f; color white>
+
 # Ghost in the Shell
+
 
 ![image](https://i.pinimg.com/originals/88/b4/d0/88b4d029c342900d92121fea161d100e.gif)
 
