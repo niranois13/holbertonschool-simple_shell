@@ -1,4 +1,4 @@
-<div style="background-color:#RRGGBB; color white">
+<section style="background-color:#RRGGBB; color white">
 # Ghost in the Shell
 
 ![image](https://i.pinimg.com/originals/88/b4/d0/88b4d029c342900d92121fea161d100e.gif)
@@ -99,3 +99,4 @@ To run this project, you will need to add the following environment variables to
 
 
 ![image](https://i.pinimg.com/originals/8b/d7/01/8bd701835159269167960889f99f182d.jpg)
+</section>
