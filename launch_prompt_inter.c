@@ -12,7 +12,7 @@ int launch_prompt_1(char **args)
 	char *input, *command_found = NULL;
 	size_t len = 0;
 	char **command = NULL;
-	int flag_status = EXIT_SUCCESS;
+	int flag = 0;
 
 	while (1)
 	{
@@ -23,7 +23,7 @@ int launch_prompt_1(char **args)
 			if ((access(command[0], X_OK) == 0) | (strcmp(command[0], "exit") == 0)
 			| (strcmp(command[0], "env") == 0))
 			{
-				built_in(command, flag_status);
+				built_in(command, flag);
 				free_string_array(command);
 				continue;
 			}
@@ -34,8 +34,10 @@ int launch_prompt_1(char **args)
 				if (command_found != NULL)
 					execute_command(command_found, command);
 				else
+				{
 					dprintf(STDERR_FILENO, "%s: No such file or directory\n", args[0]);
-						flag_status = update_exit_status(flag_status);
+					flag = 1;
+				}
 
 				free(command_found);
 			}

@@ -14,7 +14,7 @@ extern char **environ;
 
 int launch_prompt_1(char **args);
 int launch_prompt_2(int argc_number, char **args);
-int built_in(char **command, int flag_status);
+int built_in(char **command, int flag);
 char **parse(char *input);
 char *find_path(char *command);
 char *prompt_and_read_input_1(char **input, size_t *len);
@@ -24,6 +24,6 @@ const char *get_path();
 void free_string_array(char **array);
 void sigint_handler();
 void *_realloc(void *ptr, size_t old_size, size_t new_size);
-int update_exit_status(int flag_status);
+
 
 #endif

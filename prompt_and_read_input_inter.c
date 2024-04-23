@@ -22,13 +22,13 @@ char *prompt_and_read_input_1(char **input, size_t *len)
 		{
 			printf("\n");
 			free(*input);
-			exit(EXIT_SUCCESS);
+			exit(errno);
 		}
 		else
 		{
 			perror("getLine\n");
 			free(*input);
-			exit(EXIT_FAILURE);
+			exit(errno);
 		}
 	}
 	return (*input);
