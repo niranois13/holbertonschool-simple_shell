@@ -24,7 +24,7 @@ int execute_command(const char *path, char **command)
 	{
 		execve(path, command, environ);
 		perror("execve");
-		exit(errno);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{

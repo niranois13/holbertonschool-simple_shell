@@ -20,13 +20,13 @@ char *prompt_and_read_input_2(char **input, size_t *len)
 		if (read == EOF)
 		{
 			free(*input);
-			exit(errno);
+			exit(EXIT_SUCCESS);
 		}
 		else
 		{
 			perror("getLine\n");
 			free(*input);
-			exit(errno);
+			exit(EXIT_FAILURE);
 		}
 	}
 	return (*input);
