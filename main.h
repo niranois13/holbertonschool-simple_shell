@@ -21,7 +21,6 @@ char *read_input(char **input, size_t *len, int *exit_status);
 int execute_command(const char *path, char **command, int *exit_status);
 const char *get_path();
 int handle_command_found(char **command,int argc, char *argv[], int *exit_status);
-int handle_command_found(char **command, int argc, char *argv[]);
 
 /* Helper functions prototypes */
 void free_string_array(char **array);
