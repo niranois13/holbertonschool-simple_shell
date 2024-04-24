@@ -10,35 +10,35 @@
  */
 int execute_command(const char *path, char **command, int *exit_status)
 {
-    pid_t child_pid;
-    int status, child_exit_status;
+	pid_t child_pid;
+	int status, child_exit_status;
 
-    child_pid = fork();
+	child_pid = fork();
 
-    if (child_pid == -1)
-    {
-        _perror("fork", exit_status);
-        return (-1);
-    }
+	if (child_pid == -1)
+	{
+		_perror("fork", exit_status);
+		return (-1);
+	}
 
-    if (child_pid == 0)
-    {
-        execve(path, command, environ);
-        _perror("execve", exit_status);
-        exit(EXIT_FAILURE);
-    }
-    else
-    {
-        waitpid(child_pid, &status, 0);
+	if (child_pid == 0)
+	{
+		execve(path, command, environ);
+		_perror("execve", exit_status);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		waitpid(child_pid, &status, 0);
 
-        if (WIFEXITED(status))
-        {
-            child_exit_status = WEXITSTATUS(status);
-            if (child_exit_status != 0)
-                *exit_status = child_exit_status;
-        }
-        else
-            *exit_status = 1;
-    }
-    return (0);
+		if (WIFEXITED(status))
+		{
+			child_exit_status = WEXITSTATUS(status);
+			if (child_exit_status != 0)
+				*exit_status = child_exit_status;
+		}
+		else
+			*exit_status = 1;
+	}
+	return (0);
 }

@@ -23,13 +23,13 @@ char *read_input(char **input, size_t *len, int *exit_status)
 			if (isatty(STDIN_FILENO))
 				printf("\n");
 			free(*input);
-			exit(errno);
+			exit(*exit_status);
 		}
 		else
 		{
 			_perror("getLine\n", exit_status);
 			free(*input);
-			exit(errno);
+			exit(*exit_status);
 		}
 	}
 	return (*input);

@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	char *input, **command = NULL;
 	size_t len = 0;
 	int status_value = 0;
-    int *exit_status = &status_value;
+	int *exit_status = &status_value;
 
 	while (1)
 	{
