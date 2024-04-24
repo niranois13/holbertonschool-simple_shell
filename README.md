@@ -1,4 +1,4 @@
-<section style="background-color:#0a192f; color white>
+
 
 ## Ghost in the Shell
 
@@ -51,54 +51,53 @@ The purpose of the simple shell project is to understand:
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/niranois13
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd holbertonschool-simple_shell
 ```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run start
-```
-
 
 ## Running Tests
 
-To run tests, run the following command
+**_To run tests, compile with_**
+```bash
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```
+**_Your shell should work like this in interactive mode:_**
 
 ```bash
-  npm run test
+ $ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+```
+**_Your shell should work like this in  non-interactive mode:_**
+
+```bash
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
 ```
 
 
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
-
-## Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
-| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
-| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
-| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+## Flowchart
 
 
-![image](https://i.pinimg.com/originals/8b/d7/01/8bd701835159269167960889f99f182d.jpg | width= 400)
-</section>
+
+
+
+<img src="https://i.pinimg.com/originals/8b/d7/01/8bd701835159269167960889f99f182d.jpg" width= "400" height= "300">
+
