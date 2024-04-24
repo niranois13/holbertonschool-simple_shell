@@ -56,7 +56,11 @@ int main(int argc, char *argv[])
  * @argv: array of command-line arguments.
  * Return: 0 on success
  */
+<<<<<<< HEAD
 int handle_command_found(char **command,int argc, char *argv[], int *exit_status)
+=======
+int handle_command_found(char **command, int argc, char *argv[])
+>>>>>>> 73d0b2d6115f0abece84a125342fe6f6b9b48539
 {
 	char *command_found = NULL;
 
@@ -68,10 +72,9 @@ int handle_command_found(char **command,int argc, char *argv[], int *exit_status
 			execute_command(command_found, command, exit_status);
 
 		else
-		{
-			dprintf(STDERR_FILENO,"%d: %s: No such file or directory\n", argc, argv[0]);
-			*exit_status = 2;
-		}
+			dprintf(STDERR_FILENO, "%d: %s: No such file or directory\n"
+			, argc, argv[0]);
+
 		free(command_found);
 	}
 	return (0);
