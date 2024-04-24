@@ -1,0 +1,46 @@
+.TH MYSHELL 1 "2024-04-24" "1.0" "MyShell Manual"
+.SH NAME
+myshell \- a simple command-line shell for Unix-like systems.
+.SH SYNOPSIS
+.B myshell
+.SH DESCRIPTION
+MyShell is a simple Unix shell program. It reads commands from the user or a file and executes them.
+It supports executing both built-in commands and external system commands found in the user's PATH.
+.SH BUILT-IN COMMANDS
+The following built-in commands are supported:
+.TP
+.B exit
+Exits the shell.
+.TP
+.B env
+Prints the environment variables to the standard output.
+.SH USAGE
+Users can enter commands as input in the following way:
+.PP
+\fB$ command [options] [arguments]\fR
+.PP
+If the command is found in the shell's path, it will be executed. Otherwise, the shell will report an error.
+.SH SIGNALS
+MyShell handles the SIGINT signal (Ctrl+C) by printing a new prompt line.
+.SH SPECIFIC FUNCTIONS
+The following specific functions are detailed:
+.TP
+.B get_path()
+This function fetches the global PATH variable from the global environ variable.
+.TP
+.B find_path(command)
+This function finds the full path of a given command.
+.TP
+.B read_input(input, len)
+This function displays a prompt for user input, reads this input, and returns it.
+.SH AUTHORS
+Written by:
+.TP
+- Cédric TOBIE: [@HolbieWan](https://github.com/HolbieWan)
+.TP
+- Nicolas DOYEN:[@niranois13](https://github.com/niranois13)
+.TP
+- Nadège LUTHIER: [@NadegeL](https://github.com/NadegeL)
+.SH "SEE ALSO"
+.BR bash(1),
+.BR sh(1),

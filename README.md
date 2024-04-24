@@ -90,6 +90,12 @@ hsh main.c shell.c test_ls_2
 $
 ```
 
+## Help manual: 
+
+**_To run our Simple Shell manual use the following command:_**
+```bash
+man ./man_simple_shell
+```
 
 ## Flowchart
 ![!\[alt text\](Test/Shell_flowchart.jpeg)](Images/Shell_flowchart.jpeg)
