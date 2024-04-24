@@ -20,6 +20,7 @@ char *find_path(char *command);
 char *read_input(char **input, size_t *len);
 int execute_command(const char *path, char **command);
 const char *get_path();
+int handle_command_found(char **command,int argc, char *argv[]);
 
 /* Helper functions prototypes */
 void free_string_array(char **array);

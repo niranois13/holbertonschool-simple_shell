@@ -20,6 +20,5 @@ int built_in(char **command)
 		for (env = environ; *env != NULL ; env++)
 			printf("%s\n", *env);
 	}
-
-	return (1);
+	return (0);
 }

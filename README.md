@@ -1,5 +1,3 @@
-
-
 ## Ghost in the Shell
 
 
@@ -28,7 +26,7 @@ The purpose of the simple shell project is to understand:
 - How does the shell use the PATH to find the programs
 - How to execute another program with the execve system call
 - How to suspend the execution of a process until one of its children terminates
-- What is EOF / “end-of-file”?
+- What is EOF / "end-of-file"?
 ## Requirements 
 
 - Allowed editors: vi, vim, emacs
@@ -94,7 +92,8 @@ $
 
 
 ## Flowchart
-![!\[alt text\](<./test/holbertonschool-simple_shell shell_flowchart.jpeg>)](Test/Shell_flowchart.jpeg)
+![alt text](Test/Shell_flowchart.jpeg)
+
 
 
 </div>
@@ -102,3 +101,8 @@ $
 <div align="center">
 <img src="https://i.pinimg.com/originals/8b/d7/01/8bd701835159269167960889f99f182d.jpg" width= "200" height= "300">
 </div>
+
+
+
+
+

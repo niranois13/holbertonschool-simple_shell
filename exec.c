@@ -7,6 +7,7 @@
  * @path: pointer to the string containing the path of the command to execute
  * Return: 0 on success, or -1 on failure
  */
+ 
 int execute_command(const char *path, char **command)
 {
 	pid_t child_pid;
