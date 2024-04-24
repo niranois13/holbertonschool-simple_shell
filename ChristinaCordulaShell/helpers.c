@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+* _realloc - function pointer that mimics the realloc() of Standard C library
+* @ptr: pointer to the array that needs its memory reallocated
+* @old_size: size of the array before the reallocated memory
+* @new_size: size of the array expected after the reallocation
+* Return: void
+*/
 void *_realloc(void *ptr, size_t old_size, size_t new_size)
 {
 	void *new_ptr = NULL;
@@ -62,9 +69,12 @@ void free_string_array(char **array)
 /**
 * sigint_handler - function that handles the SIGINT(CTRL+C) signal
 *					by printing a newline and prompt
+* @sig: signal sent by the signal function
+* Return: void
 */
-void sigint_handler(void)
+void sigint_handler(int sig)
 {
+	(void)sig;
 	printf("\n$$ ");
 	fflush(stdout);
 }

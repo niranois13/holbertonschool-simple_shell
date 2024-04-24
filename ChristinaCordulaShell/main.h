@@ -23,6 +23,6 @@ const char *get_path();
 
 /* Helper functions prototypes */
 void free_string_array(char **array);
-void sigint_handler(void);
+void sigint_handler(int sig);
 void *_realloc(void *ptr, size_t old_size, size_t new_size);
 #endif
