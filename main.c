@@ -66,8 +66,8 @@ int handle_command_found(char **command, int argc, char *argv[])
 			execute_command(command_found, command);
 
 		else
-			dprintf(STDERR_FILENO, "%d: %s: No such file
-			 or directory\n", argc, argv[0]);
+			dprintf(STDERR_FILENO, "%d: %s: No such file or directory\n"
+			, argc, argv[0]);
 
 		free(command_found);
 	}
