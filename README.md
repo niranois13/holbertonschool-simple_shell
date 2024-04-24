@@ -94,10 +94,11 @@ $
 
 
 ## Flowchart
+![alt text](<./test/holbertonschool-simple_shell shell_flowchart.jpeg>)
 
 
 
 
 
-<img src="https://i.pinimg.com/originals/8b/d7/01/8bd701835159269167960889f99f182d.jpg" width= "400" height= "300">
+<img src="https://i.pinimg.com/originals/8b/d7/01/8bd701835159269167960889f99f182d.jpg" width= "200" height= "300">
 
