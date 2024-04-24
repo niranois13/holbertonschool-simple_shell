@@ -41,7 +41,7 @@ The purpose of the simple shell project is to understand:
 
 ## Screenshots
 
-![!\[App Screenshot\](https://via.placeholder.com/468x300?text=App+Screenshot+Here)](<Test/Capture d’écran 2024-04-24 à 17.08.43.png>)
+![alt text](<Images/Capture d’écran 2024-04-24 à 17.08.43.png>)
 
 
 ## Run Locally
@@ -92,7 +92,7 @@ $
 
 
 ## Flowchart
-![alt text](Test/Shell_flowchart.jpeg)
+![!\[alt text\](Test/Shell_flowchart.jpeg)](Images/Shell_flowchart.jpeg)
 
 
 </div>
