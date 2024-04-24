@@ -78,3 +78,14 @@ void sigint_handler(int sig)
 	printf("\n$$ ");
 	fflush(stdout);
 }
+
+/**
+* _perror - function that does the same as perror, mostly for space management
+* @error_msg: string containing the adequat perror message
+* Return: void
+*/
+int _perror(char *error_msg)
+{
+	perror(error_msg);
+	return (-1);
+}

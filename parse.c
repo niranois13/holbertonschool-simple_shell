@@ -13,14 +13,9 @@ char **parse(char *input)
 
 	if (input == NULL)
 		return (NULL);
-
 	tokens = malloc(sizeof(char *));
 	if (tokens == NULL)
-	{
-		perror("malloc");
-		free(tokens);
-		return (NULL);
-	}
+		_perror("malloc");
 	tok = strtok(input, delim);
 	if (tok == NULL)
 	{
@@ -38,14 +33,12 @@ char **parse(char *input)
 			return (NULL);
 		}
 		position++;
-
 		tokens = _realloc(tokens, position * sizeof(char *),
 		(position + 1) * sizeof(char *));
 		if (tokens == NULL)
 		{
 			free_string_array(tokens);
-			perror("realloc");
-			return (NULL);
+			_perror("realloc");
 		}
 		tok = strtok(NULL, delim);
 	}

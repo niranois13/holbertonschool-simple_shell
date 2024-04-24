@@ -10,19 +10,20 @@
 #include <signal.h>
 #include <errno.h>
 
+/* Extern global variable */
 extern char **environ;
 
-int launch_prompt_1(char **args);
-int launch_prompt_2(int argc_number, char **args);
+/* Main functions prototypes */
 int built_in(char **command);
 char **parse(char *input);
 char *find_path(char *command);
-char *prompt_and_read_input_1(char **input, size_t *len);
-char *prompt_and_read_input_2(char **input, size_t *len);
+char *read_input(char **input, size_t *len);
 int execute_command(const char *path, char **command);
 const char *get_path();
-void free_string_array(char **array);
-void sigint_handler();
-void *_realloc(void *ptr, size_t old_size, size_t new_size);
 
+/* Helper functions prototypes */
+void free_string_array(char **array);
+void sigint_handler(int sig);
+void *_realloc(void *ptr, size_t old_size, size_t new_size);
+int _perror(char *error_msg);
 #endif

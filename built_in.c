@@ -20,8 +20,6 @@ int built_in(char **command)
 		for (env = environ; *env != NULL ; env++)
 			printf("%s\n", *env);
 	}
-	if (*command[0] != '\0' && access(command[0], X_OK) == 0)
-		execute_command(command[0], command);
 
 	return (1);
 }
