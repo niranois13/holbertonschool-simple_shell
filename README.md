@@ -2,9 +2,9 @@
 
 ## Ghost in the Shell
 
-
+<div align="center">
 ![image](https://i.pinimg.com/originals/88/b4/d0/88b4d029c342900d92121fea161d100e.gif)
-
+</div>
 The Simple Shell is a simple command line interpreter based on the first Unix shell 'sh', created by Ken Thompson in 1971. The Ghost in the Shell is a minimalistic and contains functionality for only the most basic shell tasks - accepting input, parsing the input into a command and its arguments, and executing that input. 
 
 
@@ -99,6 +99,6 @@ $
 
 
 
-
+<div align="center">
 <img src="https://i.pinimg.com/originals/8b/d7/01/8bd701835159269167960889f99f182d.jpg" width= "200" height= "300">
-
+</div>
