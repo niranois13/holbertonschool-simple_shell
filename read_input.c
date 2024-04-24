@@ -9,7 +9,7 @@
 *@len: pointer to the BUFFER_SIZE
 *Return: dynamically allocated input string
 */
-char *read_input(char **input, size_t *len)
+char *read_input(char **input, size_t *len, int *exit_status)
 {
 	ssize_t read;
 	*input = NULL;
@@ -23,13 +23,13 @@ char *read_input(char **input, size_t *len)
 			if (isatty(STDIN_FILENO))
 				printf("\n");
 			free(*input);
-			exit(exit_status);
+			exit(errno);
 		}
 		else
 		{
-			_perror("getLine\n");
+			_perror("getLine\n", exit_status);
 			free(*input);
-			exit(exit_status);
+			exit(errno);
 		}
 	}
 	return (*input);

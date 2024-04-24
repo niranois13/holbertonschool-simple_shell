@@ -12,20 +12,19 @@
 
 /* Extern global variable */
 extern char **environ;
-extern int exit_status;
 
 /* Main functions prototypes */
-int built_in(char **command);
-char **parse(char *input);
-char *find_path(char *command);
-char *read_input(char **input, size_t *len);
-int execute_command(const char *path, char **command);
+int built_in(char **command, int *exit_status);
+char **parse(char *input, int *exit_status);
+char *find_path(char *command, int *exit_status);
+char *read_input(char **input, size_t *len, int *exit_status);
+int execute_command(const char *path, char **command, int *exit_status);
 const char *get_path();
-int handle_command_found(char **command,int argc, char *argv[]);
+int handle_command_found(char **command,int argc, char *argv[], int *exit_status);
 
 /* Helper functions prototypes */
 void free_string_array(char **array);
 void sigint_handler(int sig);
 void *_realloc(void *ptr, size_t old_size, size_t new_size);
-int _perror(char *error_msg);
+int _perror(char *error_msg, int *exit_status);
 #endif

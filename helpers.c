@@ -84,10 +84,10 @@ void sigint_handler(int sig)
 * @error_msg: string containing the adequat perror message
 * Return: void
 */
-int _perror(char *error_msg)
+int _perror(char *error_msg, int *exit_status)
 {
 	perror(error_msg);
-	exit_status = errno;
+	*exit_status = errno;
 	return (-1);
 }
 

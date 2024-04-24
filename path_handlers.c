@@ -24,7 +24,7 @@ const char *get_path()
  * @command: The command for which it's needed to find the full path
  * Return: The full path of the command if found or NULL otherwise
  */
-char *find_path(char *command)
+char *find_path(char *command, int *exit_status)
 {
 	char *path_copy, *path_directory, *full_command_path = NULL;
 
@@ -40,7 +40,7 @@ char *find_path(char *command)
 	{
 		full_command_path = malloc(strlen(path_directory) + strlen(command) + 2);
 		if (full_command_path == NULL)
-			_perror("malloc");
+			_perror("malloc", exit_status);
 
 		sprintf(full_command_path, "%s/%s", path_directory, command);
 
