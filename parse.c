@@ -29,8 +29,8 @@ char **parse(char *input)
 		if (tokens[position] == NULL)
 		{
 			free_string_array(tokens);
+			_perror("stdrup");
 			fprintf(stderr, "Failed to duplicate token\n");
-			return (NULL);
 		}
 		position++;
 		tokens = _realloc(tokens, position * sizeof(char *),

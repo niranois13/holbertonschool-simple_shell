@@ -18,19 +18,18 @@ char *read_input(char **input, size_t *len)
 	read = getline(input, len, stdin);
 	if (read == -1)
 	{
-
 		if (read == EOF)
 		{
 			if (isatty(STDIN_FILENO))
 				printf("\n");
 			free(*input);
-			exit(EXIT_SUCCESS);
+			exit(exit_status);
 		}
 		else
 		{
-			perror("getLine\n");
+			_perror("getLine\n");
 			free(*input);
-			exit(EXIT_FAILURE);
+			exit(exit_status);
 		}
 	}
 	return (*input);

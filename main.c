@@ -45,3 +45,29 @@ int main(int argc, char *argv[])
 	free(input);
 	return (0);
 }
+
+/**
+ * handle_command_found - handles the execution of command found in path
+ * from the environ variable
+ * @command: Array of commands arguments to execute
+ * @argc: number of command-line arguments.
+ * @argv: array of command-line arguments.
+ * Return: 0 on success
+ */
+int handle_command_found(char **command,int argc, char *argv[])
+{
+	char *command_found = NULL;
+
+	if (*command[0] != '\0')
+	{
+		command_found = find_path(command[0]);
+
+		if (command_found != NULL)
+			execute_command(command_found, command);
+
+		else
+			dprintf(STDERR_FILENO,"%d: %s: No such file or directory\n", argc, argv[0]);
+		free(command_found);
+	}
+	return (0);
+}

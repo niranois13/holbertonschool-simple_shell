@@ -7,7 +7,7 @@
  * @path: pointer to the string containing the path of the command to execute
  * Return: 0 on success, or -1 on failure
  */
- 
+
 int execute_command(const char *path, char **command)
 {
 	pid_t child_pid;
@@ -16,7 +16,7 @@ int execute_command(const char *path, char **command)
 
 	if (child_pid == -1)
 	{
-		perror("fork");
+		_perror("fork");
 		fprintf(stderr, "%s\n", strerror(errno));
 		return (-1);
 	}
@@ -24,8 +24,8 @@ int execute_command(const char *path, char **command)
 	if (child_pid == 0)
 	{
 		execve(path, command, environ);
-		perror("execve");
-		exit(EXIT_FAILURE);
+		_perror("execve");
+		exit(exit_status);
 	}
 	else
 	{

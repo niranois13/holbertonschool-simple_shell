@@ -40,10 +40,8 @@ char *find_path(char *command)
 	{
 		full_command_path = malloc(strlen(path_directory) + strlen(command) + 2);
 		if (full_command_path == NULL)
-		{
-			perror("malloc");
-			return (NULL);
-		}
+			_perror("malloc");
+
 		sprintf(full_command_path, "%s/%s", path_directory, command);
 
 		if (access(full_command_path, X_OK) == 0)
@@ -59,27 +57,3 @@ char *find_path(char *command)
 }
 
 
-/**
- * execute_command - Function that execute shell commands
- * from the environ variable
- * @command: Array of commands arguments to execute
- * @argv: pointer to the string containing the path of the command to execute
- * Return: 0 on success, or -1 on failure
- */
-int handle_command_found(char **command,int argc, char *argv[])
-{
-	char *command_found = NULL;
-
-	if (*command[0] != '\0')
-	{
-		command_found = find_path(command[0]);
-
-		if (command_found != NULL)
-			execute_command(command_found, command);
-
-		else
-			dprintf(STDERR_FILENO,"%d: %s: No such file or directory\n", argc, argv[0]);
-		free(command_found);
-	}
-	return (0);
-}

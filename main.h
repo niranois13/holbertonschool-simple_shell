@@ -12,6 +12,7 @@
 
 /* Extern global variable */
 extern char **environ;
+extern int exit_status;
 
 /* Main functions prototypes */
 int built_in(char **command);

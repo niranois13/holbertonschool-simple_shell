@@ -87,7 +87,7 @@ void sigint_handler(int sig)
 int _perror(char *error_msg)
 {
 	perror(error_msg);
+	exit_status = errno;
 	return (-1);
 }
-
 
