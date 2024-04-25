@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * execute_command - Function that execute shell commands
- * 						from the environ variable
- * @path: Pointer to the string containing the path of the command to execute
- * @command: Array of commands arguments to execute
- * @exit_status: Pointer to the exit status variable to update
- * Return: 0 on success, or -1 on failure
- */
+* execute_command - Function that execute shell commands
+*						from the environ variable
+* @path: Pointer to the string containing the path of the command to execute
+* @command: Array of commands arguments to execute
+* @exit_status: Pointer to the exit status variable to update
+* Return: 0 on success, or -1 on failure
+*/
 int execute_command(const char *path, char **command, int *exit_status)
 {
 	pid_t child_pid;

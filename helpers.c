@@ -94,7 +94,7 @@ int _perror(char *error_msg, int *exit_status)
 
 /**
 * _error - function that handles errors, except system call failures
-* @error_message: string containing the adequat error message
+* @error_msg: string containing the adequat error message
 * @exit_status: pointer to an int storing th exit status
 */
 void _error(const char *error_msg, int *exit_status)

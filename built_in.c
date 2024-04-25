@@ -22,7 +22,7 @@ int built_in(char **command, int *exit_status)
 		free_string_array(command);
 		exit(user_exit_code);
 	}
-	
+
 	if (strcmp(command[0], "env") == 0)
 	{
 		for (env = environ; *env != NULL ; env++)

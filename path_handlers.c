@@ -22,6 +22,7 @@ const char *get_path()
 /**
  * find_path - Function that finds the full path of a given command.
  * @command: The command for which it's needed to find the full path
+ * @exit_status: pointer to an int that tracks exit status
  * Return: The full path of the command if found or NULL otherwise
  */
 char *find_path(char *command, int *exit_status)

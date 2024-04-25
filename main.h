@@ -20,7 +20,7 @@ char **parse(char *input, int *exit_status);
 const char *get_path();
 char *find_path(char *command, int *exit_status);
 int execute_command(const char *path, char **command, int *exit_status);
-int handle_command_found(char **command, int argc, char *argv[], int *exit_status);
+int hdle_comm_found(char **command, int argc, char *argv[], int *exit_status);
 
 /* Helper functions prototypes */
 void *_realloc(void *ptr, size_t old_size, size_t new_size);

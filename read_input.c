@@ -5,8 +5,9 @@
 /**
 * read_input - fucntion that displays a prompt for user input,
 * and reads it.
-*@input: pointer to the input string
-*@len: pointer to the BUFFER_SIZE
+* @input: pointer to the input string
+* @len: pointer to the BUFFER_SIZE
+* @exit_status: pointer to an int that tracks exit status
 *Return: dynamically allocated input string
 */
 char *read_input(char **input, size_t *len, int *exit_status)

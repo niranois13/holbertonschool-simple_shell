@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 				continue;
 			}
 			if (*command[0] != '\0')
-				handle_command_found(command, argc, argv, exit_status);
+				hdle_comm_found(command, argc, argv, exit_status);
 
 			free_string_array(command);
 		}
@@ -49,14 +49,15 @@ int main(int argc, char *argv[])
 }
 
 /**
- * handle_command_found - handles the execution of command found in path
+ * hdle_comm_found - handles the execution of command found in path
  * from the environ variable
  * @command: Array of commands arguments to execute
  * @argc: number of command-line arguments.
  * @argv: array of command-line arguments.
+ * @exit_status: pointer to an int that tracks exit status
  * Return: 0 on success
  */
-int handle_command_found(char **command, int argc, char *argv[], int *exit_status)
+int hdle_comm_found(char **command, int argc, char *argv[], int *exit_status)
 {
 	char *command_found = NULL;
 
