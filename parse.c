@@ -3,6 +3,7 @@
 /**
  * parse - Function that tokkenises the input string.
  * @input: pointer to the strings
+ * @exit_status: pointer to an int storing the exit status
  * Return: NULL or array of arguments strings.
 */
 char **parse(char *input, int *exit_status)

@@ -41,7 +41,7 @@ The purpose of the simple shell project is to understand:
 
 ## Screenshots
 
-![alt text](<Images/Capture d’écran 2024-04-24 à 17.08.43.png>)
+![alt text](Images/Simple_shell_scrennshot.png)
 
 
 ## Run Locally
@@ -98,7 +98,7 @@ man ./man_simple_shell
 ```
 
 ## Flowchart
-![!\[alt text\](Test/Shell_flowchart.jpeg)](Images/Shell_flowchart.jpeg)
+![alt text](Images/Shell_flowchart.jpeg)
 
 
 </div>

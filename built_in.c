@@ -4,6 +4,7 @@
  * built_in - function that handle built-in commands like "exit" and "env"
  * and the executable commands from the environement passed as first argument
  * @command: pointer to an array of strings
+ * @exit_status: pointer to an int storing the exit status
  * Return: succes or 0
 */
 int built_in(char **command, int *exit_status)
