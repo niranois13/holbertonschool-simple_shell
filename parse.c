@@ -5,7 +5,7 @@
  * @input: pointer to the strings
  * Return: NULL or array of arguments strings.
 */
-char **parse(char *input, int *exit_status)
+char **parse(char *input, int argc, char *argv[], int *exit_status)
 {
 	char **tokens = NULL, *tok;
 	int position = 0;
@@ -15,7 +15,7 @@ char **parse(char *input, int *exit_status)
 		return (NULL);
 	tokens = malloc(sizeof(char *));
 	if (tokens == NULL)
-		_perror("malloc", exit_status);
+		_error("malloc", argc, argv, exit_status);
 	tok = strtok(input, delim);
 	if (tok == NULL)
 	{
@@ -29,8 +29,7 @@ char **parse(char *input, int *exit_status)
 		if (tokens[position] == NULL)
 		{
 			free_string_array(tokens);
-			_perror("stdrup", exit_status);
-			fprintf(stderr, "Failed to duplicate token\n");
+			_error("stdrup", argc, argv, exit_status);
 		}
 		position++;
 		tokens = _realloc(tokens, position * sizeof(char *),
@@ -38,7 +37,7 @@ char **parse(char *input, int *exit_status)
 		if (tokens == NULL)
 		{
 			free_string_array(tokens);
-			_perror("realloc", exit_status);
+			_error("realloc", argc, argv, exit_status);
 		}
 		tok = strtok(NULL, delim);
 	}

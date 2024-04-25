@@ -80,8 +80,9 @@ void sigint_handler(int sig)
 }
 
 /**
-* _perror - function that does the same as perror, mostly for space management
+* _perror - function that handles system call failures
 * @error_msg: string containing the adequat perror message
+* @exit_status: pointer to an int storing the exit status
 * Return: void
 */
 int _perror(char *error_msg, int *exit_status)
@@ -89,5 +90,48 @@ int _perror(char *error_msg, int *exit_status)
 	perror(error_msg);
 	*exit_status = errno;
 	return (-1);
+}
+
+/**
+* _error - function that handles errors, except system call failures
+* @error_message: string containing the adequat error message
+* @exit_status: pointer to an int storing th exit status
+*/
+void _error(const char *error_msg, int argc, char *argv[], int *exit_status)
+{
+	int error_exit_code;
+
+	if (strcmp(error_msg, "Command not found") == 0)
+	{
+		fprintf(stderr, "%d: %s: not found\n", argc, argv[0]);
+		error_exit_code = 127;
+	}
+	else if (strcmp(error_msg, "malloc") == 0)
+	{
+		fprintf(stderr, "Memory allocation failed\n");
+		error_exit_code = 1;
+	}
+	else if (strcmp(error_msg, "realloc") == 0)
+	{
+		fprintf(stderr, "Memory reallocation failed\n");
+		error_exit_code = 1;
+	}
+	else if (strcmp(error_msg, "strdup") == 0)
+	{
+		fprintf(stderr, "Failed to duplicate token\n");
+		error_exit_code = 1;
+	}
+	else if (strcmp(error_msg, "getline") == 0)
+	{
+		fprintf(stderr, "Failed to read user input\n");
+		error_exit_code = 1;
+	}
+	else if (strcmp(error_msg, "EOF") == 0)
+	{
+		fprintf(stderr, "Reached End-Of-File\n");
+		error_exit_code = 0;
+	}
+
+    *exit_status = error_exit_code;
 }
 

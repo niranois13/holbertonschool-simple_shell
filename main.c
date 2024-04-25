@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
 			printf("$$ ");
 			fflush(stdout);
 		}
-		read_input(&input, &len, exit_status);
-		command = parse(input, exit_status);
+		read_input(&input, &len, argc, argv, exit_status);
+		command = parse(input, argc, argv, exit_status);
 		if (command != NULL && command[0] != NULL)
 		{
 			if ((strcmp(command[0], "exit") == 0) || (strcmp(command[0], "env") == 0))
@@ -56,21 +56,21 @@ int main(int argc, char *argv[])
  * @argv: array of command-line arguments.
  * Return: 0 on success
  */
-int handle_command_found(char **command,int argc, char *argv[], int *exit_status)
+int handle_command_found(char **command, int argc, char *argv[], int *exit_status)
 {
 	char *command_found = NULL;
 
 	if (*command[0] != '\0')
 	{
-		command_found = find_path(command[0], exit_status);
+		command_found = find_path(command[0], argc, argv, exit_status);
 
 		if (command_found != NULL)
 			execute_command(command_found, command, exit_status);
-
 		else
-			dprintf(STDERR_FILENO, "%d: %s: No such file or directory\n"
-			, argc, argv[0]);
-
+		{
+			_error("Command not found", argc, argv, exit_status);
+			printf("test");
+		}
 		free(command_found);
 	}
 	return (0);
