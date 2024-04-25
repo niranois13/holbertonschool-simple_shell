@@ -35,6 +35,7 @@ char *find_path(char *command, int *exit_status)
 		_error("stdrup", exit_status);
 		return (NULL);
 	}
+
 	path_directory = strtok(path_copy, ":");
 
 	while (path_directory != NULL)

@@ -104,31 +104,34 @@ void _error(const char *error_msg, int *exit_status)
 	if (strcmp(error_msg, "Command not found") == 0)
 	{
 		error_exit_code = 127;
+		*exit_status = error_exit_code;
 	}
 	else if (strcmp(error_msg, "malloc") == 0)
 	{
 		fprintf(stderr, "Memory allocation failed\n");
 		error_exit_code = 1;
+		*exit_status = error_exit_code;
 	}
 	else if (strcmp(error_msg, "realloc") == 0)
 	{
 		fprintf(stderr, "Memory reallocation failed\n");
 		error_exit_code = 1;
+		*exit_status = error_exit_code;
 	}
 	else if (strcmp(error_msg, "strdup") == 0)
 	{
 		fprintf(stderr, "Failed to duplicate token\n");
 		error_exit_code = 1;
+		*exit_status = error_exit_code;
 	}
 	else if (strcmp(error_msg, "getline") == 0)
 	{
 		fprintf(stderr, "Failed to read user input\n");
 		error_exit_code = 1;
+		*exit_status = error_exit_code;
 	}
 	else if (strcmp(error_msg, "EOF") == 0)
 	{
-		error_exit_code = 0;
+		;
 	}
-
-    *exit_status = error_exit_code;
 }

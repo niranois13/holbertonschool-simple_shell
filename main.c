@@ -70,7 +70,6 @@ int handle_command_found(char **command, int argc, char *argv[], int *exit_statu
 		{
 			fprintf(stderr, "%s: %d: %s: not found\n", argv[0], argc, command[0]);
 			_error("Command not found", exit_status);
-			printf("test");
 		}
 		free(command_found);
 	}
