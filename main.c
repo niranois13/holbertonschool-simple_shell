@@ -58,41 +58,21 @@ int main(int argc, char *argv[])
  */
 int handle_command_found(char **command, int argc, char *argv[], int *exit_status)
 {
-	int j;
 	char *command_found = NULL;
-	char *options_autorisees[] = {" ", "-?", "-a", "-A", "-b [N]", "-B", "-c",
-	"-d", "-D xcolor", "-e", "-E", "-f", "-F", "-g", "-G", "-h [N]", "-i",
-	"-I", "-j [N]", "-J", "-k [file]", "-K", "-L",  "-l", "-m", "-M", "-n",
-	"-N", "-o [file]", "-O [file]", "-p [pattern]", "-P [prompt]", "-q", "-Q",
-	"-r", "-R", "-s", "-S", "-t [tag]", "-T [tagsfile]", "-u", "-U", "-V", "-w",
-	"-W", "-x [N[,...]]", "-X", "-y [N]", "-z [N]", "-~", "-# [N]", NULL};
-
 
 	if (*command[0] != '\0')
 	{
 		command_found = find_path(command[0], exit_status);
 
-		for (j = 0; options_autorisees[j] != NULL; j++)
+		if (command_found != NULL)
+			execute_command(command_found, command, exit_status);
+		else
 		{
-			if ((command_found != NULL && access(command_found, X_OK) == 0
-				&& command[1] == NULL))
-			{
-				execute_command(command_found, command, exit_status);
-				free(command_found);
-				return (0);
-			}
-			else if ((command_found != NULL && access(command_found, X_OK) == 0
-					&& (strcmp(command[1], options_autorisees[j]) == 0)))
-			{
-				execute_command(command_found, command, exit_status);
-				free(command_found);
-				return (0);
-			}
+			fprintf(stderr, "%s: %d: %s: not found\n", argv[0], argc, command[0]);
+			_error("Command not found", exit_status);
+			printf("test");
 		}
 		free(command_found);
-		fprintf(stderr, "%s: %d: %s: not found\n", argv[0], argc, command[0]);
-			_error("Command not found", exit_status);
 	}
 	return (0);
 }
-
