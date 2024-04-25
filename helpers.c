@@ -128,7 +128,6 @@ void _error(const char *error_msg, int argc, char *argv[], int *exit_status)
 	}
 	else if (strcmp(error_msg, "EOF") == 0)
 	{
-		fprintf(stderr, "Reached End-Of-File\n");
 		error_exit_code = 0;
 	}
 
