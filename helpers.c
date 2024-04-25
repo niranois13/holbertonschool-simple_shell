@@ -97,13 +97,12 @@ int _perror(char *error_msg, int *exit_status)
 * @error_message: string containing the adequat error message
 * @exit_status: pointer to an int storing th exit status
 */
-void _error(const char *error_msg, int argc, char *argv[], int *exit_status)
+void _error(const char *error_msg, int *exit_status)
 {
 	int error_exit_code;
 
 	if (strcmp(error_msg, "Command not found") == 0)
 	{
-		fprintf(stderr, "%d: %s: not found\n", argc, argv[0]);
 		error_exit_code = 127;
 	}
 	else if (strcmp(error_msg, "malloc") == 0)
@@ -133,4 +132,3 @@ void _error(const char *error_msg, int argc, char *argv[], int *exit_status)
 
     *exit_status = error_exit_code;
 }
-
